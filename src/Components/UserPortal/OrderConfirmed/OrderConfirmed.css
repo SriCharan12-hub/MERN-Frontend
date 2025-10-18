@@ -1,0 +1,302 @@
+/* Container */
+.order-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  background: #f7f9fc;
+  margin-top: 45px;
+}
+.checkmark-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px ;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 1.5;
+  stroke: purple;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px purple;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: purple;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 2;
+  stroke: purple;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+/* Animations */
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 10px purple;
+  }
+}
+
+
+/* Card */
+.order-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.back-btn1{
+  position: absolute;
+  top: 80px;
+  left: 36px;
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Green circle icon */
+.order-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #c7f7d4;
+}
+
+/* Title and text */
+.order-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.order-message {
+  text-align: center;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.order-number {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-number span {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* Order Summary */
+.order-summary {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.summary-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-left img {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-title {
+  font-weight: 500;
+}
+
+.item-qty {
+  font-size: 13px;
+  color: #888;
+}
+
+.item-price {
+  font-weight: 600;
+  color: #3498db;
+}
+
+/* Summary rows */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* Delivery box */
+.delivery-box {
+  background: #f4faff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.delivery-date {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* Buttons */
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+  
+}
+
+.btn.primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn.secondary {
+  background: #eaf3ff;
+  color: white;
+  background-color: steelblue;
+}
+
+.btn.tertiary {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+  .order-card {
+    padding: 20px;
+  }
+
+  .order-title {
+    font-size: 20px;
+  }
+
+  .btn {
+    flex: 100%;
+  }
+}
+/* Green circle with tick */
+.order-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #27ae60; /* Success green */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-icon svg {
+  width: 34px;
+  height: 34px;
+}
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px;
+  background-color: #25D366;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 380px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5b;
+  transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+  font-size: 20px;
+}
