@@ -254,7 +254,7 @@ const HomePage = () => {
           </p>
 
           <button className="shop-now-btn">
-            <a onClick={() => window.scrollTo(0, document.getElementById("categories-id").offsetTop)}>  
+            <a onClick={() => window.scrollTo(0, document.getElementById("categories-id").offsetTop)}>
               Shop Now
             </a>
           </button>
