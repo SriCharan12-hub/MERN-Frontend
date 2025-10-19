@@ -7,7 +7,7 @@ const UserProtectedRoute = ({ children }) => {
   const userEmail = Cookies.get('userEmail');
  
 
-  const isAdmin = (userEmail === 'SriCharan@gmail.com') ||  (userEmail === 'sricharanpalem07@gmail.com');
+  const isAdmin = (userEmail === 'Sricharan@gmail.com') ||  (userEmail === 'sricharanpalem07@gmail.com');
   if (jwtToken === undefined ) {
     return <Navigate to="/login" />; 
   }
