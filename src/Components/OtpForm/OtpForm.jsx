@@ -18,6 +18,9 @@ export default function ForgotPassword() {
     
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/forgot-password`, { email });
+      if (!email.endsWith("@gmail.com")) {
+        return setMessage("Please use a valid Gmail address.");
+      }
       
 
       setMessage(res.data.message || "OTP sent successfully. Check your email.");

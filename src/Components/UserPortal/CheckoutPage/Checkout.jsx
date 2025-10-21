@@ -20,6 +20,7 @@ const Checkout = () => {
         PhoneNumber: '',
     });
     const [currentEditId, setCurrentEditId] = useState(null);
+    const [status,setStatus] = useState("")
 
     const [paymentMethod, setPaymentMethod] = useState('creditCard');
     const [cardDetails, setCardDetails] = useState({ cardNumber: '', expiryDate: '', cvv: '' });
@@ -71,7 +72,7 @@ const Checkout = () => {
         
         try {
             const res = await axios[method](url, newAddressDetails, { headers });
-            alert(res.data.message);
+            setStatus(res.data.message);
             
             setNewAddressDetails({ fullName: '', Address: '', City: '', postalCode: '', PhoneNumber: '' });
             setIsAddingNew(false);
@@ -80,7 +81,7 @@ const Checkout = () => {
             await fetchAddresses();
         } catch (err) {
             console.error('Address submission failed:', err.response?.data || err);
-            alert(`Failed to save address: ${err.response?.data?.message || "Check your input."}`);
+            setStatus(`Failed to save address: ${err.response?.data?.message || "Check your input."}`);
         }
     };
 
@@ -101,12 +102,12 @@ const Checkout = () => {
                 return updatedAddresses;
             });
             
-            alert(res.data.message);
+            setStatus(res.data.message);
             
             await fetchAddresses();
         } catch (err) {
             console.error('Address deletion failed:', err.response?.data || err);
-            alert(`Failed to delete address: ${err.response?.data?.message || "Unknown error"}`);
+            setStatus(`Failed to delete address: ${err.response?.data?.message || "Unknown error"}`);
             await fetchAddresses();
         }
     };
@@ -181,13 +182,13 @@ const Checkout = () => {
             return;
         }
         if (!selectedAddressId) {
-            alert("Please select a shipping address.");
+            setStatus("Please select a shipping address.");
             return;
         }
 
         const finalShippingDetails = userAddresses.find(addr => addr._id === selectedAddressId);
         if (!finalShippingDetails) {
-            alert("Error: Selected address details missing.");
+            setStatus("Error: Selected address details missing.");
             return;
         }
 
@@ -232,7 +233,7 @@ const Checkout = () => {
             }
         } catch (err) {
             console.error('Failed to place order:', err.response?.data || err.message);
-            alert('Failed to place order. Please try again.');
+            setStatus   ('Failed to place order. Please try again.');
         }
     };
 
@@ -332,6 +333,7 @@ const Checkout = () => {
                 title="Please enter a valid 10-digit phone number"
                 required 
             />
+            {status && <p  style={{color:"red"}}>{status}</p>}
             <div className="address-form-actions">
                 <button type="submit" className="btn-primary">
                     {currentEditId ? 'Save Changes' : 'Add Address'}

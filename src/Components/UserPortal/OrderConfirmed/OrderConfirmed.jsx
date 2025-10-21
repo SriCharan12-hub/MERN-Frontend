@@ -233,6 +233,7 @@ const OrderConfirmed = () => {
             <FaWhatsapp className="whatsapp-icon" />
             Chat on WhatsApp to Confirm Order
           </button>
+          <br/>
           <button className="btn secondary" onClick={handleContinueShopping}>
             Continue Shopping
           </button>

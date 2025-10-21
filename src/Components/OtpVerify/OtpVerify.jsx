@@ -22,6 +22,9 @@ export default function VerifyOtp() {
     try {
     
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/verify-otp`, { email, pin });
+      if (!email.endsWith("@gmail.com")) {
+        return setMessage("Please use a valid Gmail address.");
+      }
       setMessage(res.data.message || "OTP verified successfully! Redirecting...");
 
       if (res.status === 200){
