@@ -379,7 +379,7 @@ const UserOrders = () => {
                 </p>
               </div>
 
-              <div className={styles.shippingInfo}>
+            <div className={styles.shippingInfo}>
                 <h4>Shipping Address</h4>
                 <p><strong>Name:</strong> {selectedOrder.shippingDetails?.fullName || 'N/A'}</p>
                 <p><strong>Address:</strong> {selectedOrder.shippingDetails?.Address || 'N/A'}</p>

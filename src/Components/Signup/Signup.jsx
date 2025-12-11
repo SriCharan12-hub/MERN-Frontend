@@ -295,15 +295,9 @@ export default function Signup() {
     e.preventDefault();
     setError('');
 
-    if (!username || !email || !password || !confirmPassword) {
-      setError('Please fill in all the details.');
-      return;
-    }
+ 
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
+  
 
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/register`, {
@@ -330,9 +324,7 @@ export default function Signup() {
 
   return (
     <div className="signup-page">
-      <div className="signup-container">
-        
-        
+      <div className="signup-container">  
         <div className="signup-box">
           {/* Info Section */}
           <div className="signup-info">

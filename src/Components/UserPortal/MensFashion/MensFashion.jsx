@@ -121,7 +121,6 @@ const MensFashion = () => {
     } else if (sortOrder === "High to Low") {
       list.sort((a, b) => b.price - a.price);
     }
-    
     setFilteredProducts(list);
     setCurrentPage(1);
   }, [products, selectedPriceRange, sortOrder, searchQuery]);
@@ -236,7 +235,6 @@ const MensFashion = () => {
   };
 
   const handleProductClick = (productId) => navigate(`/product/${productId}`);
-
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirst, indexOfLast);
@@ -251,6 +249,7 @@ const MensFashion = () => {
   };
 
   const renderPageNumbers = () =>
+    // in map(_) _ is used to ignore first argument
     Array.from({ length: totalPages }).map((_, i) => (
       <button
         key={i + 1}

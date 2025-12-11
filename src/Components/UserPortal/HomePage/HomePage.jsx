@@ -105,12 +105,10 @@ const testimonials = [
 ];
 
 
-const mapsEmbedUrl =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.928254735459!2d78.53851759999999!3d17.367185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb98e959015689%3A0xfe758eee6bc055ac!2sPvt%20market%20kothapet%20dilsukhnagar%20Hyderabad%20500035!5e0!3m2!1sen!2sin!4v1759999191745!5m2!1sen!2sin";
+const mapsEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.928254735459!2d78.53851759999999!3d17.367185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb98e959015689%3A0xfe758eee6bc055ac!2sPvt%20market%20kothapet%20dilsukhnagar%20Hyderabad%20500035!5e0!3m2!1sen!2sin!4v1759999191745!5m2!1sen!2sin";
 
 const HomePage = () => {
   const navigate = useNavigate();
-
   const handleCategoryClick = (categoryName) => {
     window.scrollTo(0, 0);
     const routes = {
