@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import Store from './Store.js'
 import { fetchCart } from './Slice';
 import { GoogleOAuthProvider } from '@react-oauth/google'
-const client_id = "490395676475-eoifp4dm7r3d40od0qs75dtm3gbffokn.apps.googleusercontent.com"
+const client_id = import.meta.env.VITE_CLIENT_ID
 
 const root = createRoot(document.getElementById('root'));
 
