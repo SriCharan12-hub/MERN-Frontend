@@ -18,7 +18,7 @@ function PageNotFound() {
                 <h3 className="h2">Looks like you're lost</h3>
                 <p>The page you are looking for is not available!</p>
 
-                <a href="/" className="link_404" onClick={()=>navigate('/homepage')}> 
+                <a href="/homepage" className="link_404" onClick={()=>navigate('/homepage')}> 
                   Go to Home
                 </a>
               </div>

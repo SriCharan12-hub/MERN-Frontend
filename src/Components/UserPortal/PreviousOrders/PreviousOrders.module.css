@@ -1,6 +1,6 @@
 .container {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1900px;
   /* width: 700px; */
   margin: 20px auto;
 }
@@ -160,7 +160,9 @@
 
 .orderActions {
   display: flex;
+  justify-content: space-between;
   gap: 10px;
+  width: 100%;
 }
 
 .detailsButton, .cancelButton {
@@ -185,6 +187,7 @@
 .cancelButton {
   background: #e74c3c;
   color: white;
+  margin-left: auto;
 }
 
 .cancelButton:hover {

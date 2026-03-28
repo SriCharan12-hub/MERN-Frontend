@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Wishlist.css';
-import axios from 'axios';
-import Cookies from 'js-cookie';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Wishlist.css";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { MdDelete } from "react-icons/md";
 
 const Wishlist = ({ onClose }) => {
   const [wishlistItems, setWishlistItems] = useState([]);
@@ -11,21 +12,24 @@ const Wishlist = ({ onClose }) => {
   const navigate = useNavigate();
 
   const fetchWishlistData = async () => {
-    const token = Cookies.get('jwttoken');
+    const token = Cookies.get("jwttoken");
     if (!token) {
       setLoading(false);
-      setError('Please log in to view your wishlist.');
+      setError("Please log in to view your wishlist.");
       return;
     }
 
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/wishlist/get`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/wishlist/get`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       setWishlistItems(response.data.wishlist || []);
     } catch (err) {
-      console.error('Error fetching wishlist:', err);
-      setError('Failed to fetch wishlist. Please try again.');
+      console.error("Error fetching wishlist:", err);
+      setError("Failed to fetch wishlist. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -36,23 +40,25 @@ const Wishlist = ({ onClose }) => {
   }, []);
 
   const handleRemoveFromWishlist = async (productId) => {
-    const token = Cookies.get('jwttoken');
+    const token = Cookies.get("jwttoken");
     if (!token) return;
 
     // Optimistic update
-    setWishlistItems(prevItems =>
-      prevItems.filter(item => String(item.product._id) !== String(productId))
+    setWishlistItems((prevItems) =>
+      prevItems.filter(
+        (item) => String(item.product._id) !== String(productId),
+      ),
     );
 
     try {
       await axios.delete(`${import.meta.env.VITE_API_URL}/wishlist/remove`, {
         headers: { Authorization: `Bearer ${token}` },
-        data: { productId }
+        data: { productId },
       });
     } catch (err) {
-      console.error('Failed to remove from wishlist (server)', err);
+      console.error("Failed to remove from wishlist (server)", err);
       fetchWishlistData(); // revert if server fails
-      alert('Failed to remove item. Please try again.');
+      alert("Failed to remove item. Please try again.");
     }
   };
 
@@ -62,7 +68,7 @@ const Wishlist = ({ onClose }) => {
       onClose();
     } else {
       // Otherwise navigate to dashboard
-      navigate('/userdashboard');
+      navigate("/userdashboard");
     }
   };
 
@@ -88,8 +94,9 @@ const Wishlist = ({ onClose }) => {
         <h1 className="main-title">My Wishlist</h1>
         {wishlistItems.length > 0 ? (
           <div className="wishlist-items-list">
-            {wishlistItems.map(item => {
-              const originalPrice = item.product.originalPrice || item.product.price;
+            {wishlistItems.map((item) => {
+              const originalPrice =
+                item.product.originalPrice || item.product.price;
               const discountedPrice = item.product.price;
               const discount = originalPrice - discountedPrice;
               const discountPercentage =
@@ -136,7 +143,15 @@ const Wishlist = ({ onClose }) => {
                       onClick={() => handleRemoveFromWishlist(item.product._id)}
                       title="Remove from Wishlist"
                     >
-                      🗑️
+                      <div
+                        style={{
+                          fontSize: "30px",
+                          cursor: "pointer",
+                          color: "red",
+                        }}
+                      >
+                        <MdDelete />
+                      </div>
                     </button>
                   </div>
                 </div>

@@ -25,7 +25,6 @@ const ShoppingCart = () => {
 
   const fetchCartData = async () => {
     const token = Cookies.get("jwttoken");
-    
     dispatch(setLoading(true));
 
     if (!token) {

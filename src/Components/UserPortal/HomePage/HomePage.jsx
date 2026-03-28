@@ -17,7 +17,7 @@ const categories = [
   {
     name: "Electronics",
     image:
-      "https://e7.pngegg.com/pngimages/791/606/png-clipart-home-appliance-technique-for-you-washing-machines-clothes-dryer-others-miscellaneous-electronics.png",
+      "https://i.pinimg.com/1200x/eb/d8/4a/ebd84aee9bd1feddce359d9803236f4b.jpg",
   },
   {
     name: "Accessories",

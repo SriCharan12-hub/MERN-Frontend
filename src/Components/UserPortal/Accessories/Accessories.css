@@ -228,6 +228,7 @@ body {
     white-space: nowrap;
     width: 100%;
     position: relative;
+    right: 18px;
 }
 
 .add-cart-button-new:hover {

@@ -589,7 +589,7 @@
     margin-bottom: 20px;
 }
 .payment-group{
-    display: none !important;
+    /* display: none !important; */
 }
 
 .radio-label {
